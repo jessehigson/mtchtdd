@@ -24,7 +24,11 @@
     "clean": "gatsby clean"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
-    "prettier": "^2.3.0"
+    "@babel/plugin-proposal-decorators": "^7.14.2",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-gatsby": "^1.7.0",
+    "eslint-config-react-app": "^6.0.0",
+    "gatsby-plugin-remove-trailing-slashes": "^3.7.1",
+    "prettier": "2.2.1"
   }
 }
