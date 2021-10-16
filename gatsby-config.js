@@ -5,9 +5,17 @@ require("dotenv").config({
 })
 
 module.exports = {
+  flags: {
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    DEV_SSR: true,
+    FAST_DEV: true,
+  },
   siteMetadata: {
-    title: 'Gatsby + Prismic Tutorial',
-    description: 'Learn how to integrate Prismic into your Gatsby project.',
+    title: `Mitchell Todd`,
+    description: `Mitchell Todd, Digital Designer`,
+    author: `@mtchtdd`,
+    siteUrl: `https://www.mtchtdd.com`,
   },
   plugins: [
     {

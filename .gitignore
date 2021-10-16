@@ -76,3 +76,6 @@ yarn-error.log
 # Product mappings
 src/data/*
 !src/data/.gitkeep
+
+# Netlify CLI
+/.netlify
