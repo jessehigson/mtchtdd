@@ -1,11 +1,11 @@
-import * as React from 'react'
+import * as React from "react"
 
-import prismicLogo from '../images/logo-prismic.svg'
+import prismicLogo from "../images/logo-prismic.svg"
 
 export const Footer = () => (
   <footer>
     <p>
-      Proudly published with{' '}
+      Proudly published with{" "}
       <a href="https://prismic.io" target="_blank" rel="noopener noreferrer">
         Prismic
       </a>

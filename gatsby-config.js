@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: "gatsby-source-prismic",
       options: {
         repositoryName: process.env.PRISMIC_API_REPOSITORY_NAME,
         accessToken: process.env.PRISMIC_API_ACCESS_TOKEN,
@@ -32,27 +32,22 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-image',
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-image",
+    "gatsby-plugin-react-helmet",
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        icon: 'src/images/favicon.png',
+        icon: "src/images/favicon.png",
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-fonts',
-      options: {
-        fonts: [`Lato\:400,400,700,700i,900`, `Amiri\:400,400,700,700i`],
-      },
-    },
-    'gatsby-plugin-gatsby-cloud',
+    "gatsby-plugin-gatsby-cloud",
+    "gatsby-plugin-sass",
   ],
 }
