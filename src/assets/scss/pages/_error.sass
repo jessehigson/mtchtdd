@@ -1,0 +1,15 @@
+.error-page
+  +spacingBottom
+  text-align: center
+
+  @media (min-width: 1px)
+    padding-top: ($baseline * 7)
+
+    @media (min-width: $smallDesktop)
+      padding-top: ($baseline * 9)
+
+  &__status-code
+    @extend %h5
+
+  &__title
+    line-height: 0.96em

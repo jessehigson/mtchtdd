@@ -1,0 +1,21 @@
+.homepage-banner
+  +spacing
+  align-items: center
+  display: flex
+  min-height: 100vh
+
+  &__column
+    flex: 0 0 100%
+
+    @media (min-width: $smallDesktop)
+      flex-basis: 50%
+
+    &--right
+      @media (min-width: $smallDesktop)
+        text-align: right
+
+  &__title
+    font-size: 1em
+
+  &__content
+    max-width: 22em

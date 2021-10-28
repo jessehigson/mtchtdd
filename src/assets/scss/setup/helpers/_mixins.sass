@@ -1,0 +1,71 @@
+@function between($from, $to, $fromWidth, $toWidth)
+  $slope: math.div($from - $to, $fromWidth - $toWidth)
+  $base: $to - $slope * $toWidth
+
+  @return calc(#{$base} + #{100vw * $slope})
+
+=clamp($property, $from, $to, $fromWidth, $toWidth)
+  #{$property}: $from
+
+  @media (min-width: $fromWidth)
+    #{$property}: between($from, $to, $fromWidth, $toWidth)
+
+  @media (min-width: $toWidth)
+    #{$property}: $to
+
+=primaryFont
+  font-family: $primaryFont
+
+=cover($padding: 0)
+  bottom: $padding
+  left: $padding
+  position: absolute
+  right: $padding
+  top: $padding
+
+=gutterLeft
+  padding-left: $gutter
+
+=gutterRight
+  padding-right: $gutter
+
+=gutters
+  +gutterLeft
+  +gutterRight
+
+=spacingTop
+  padding-top: $blockSpacerMobile
+
+  @media (min-width: $smallDesktop)
+    padding-top: $blockSpacerDesktop
+
+=spacingBottom
+  padding-bottom: $blockSpacerMobile
+
+  @media (min-width: $smallDesktop)
+    padding-bottom: $blockSpacerDesktop
+
+=spacing
+  +spacingTop
+  +spacingBottom
+
+=opacityHover
+  transition: opacity $transitionDuration $transitionTimingFunction
+  opacity: 1
+
+  &:hover
+    opacity: $opacityHover
+
+=imageRatio($padding)
+  overflow: hidden
+  position: relative
+  height: 0
+  padding-top: ($padding * 1%)
+
+  .gatsby-image-wrapper
+    +cover
+
+=pseudoBasics
+  display: block
+  content: ""
+  position: absolute

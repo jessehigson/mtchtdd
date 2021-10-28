@@ -1,18 +1,23 @@
 import * as React from "react"
 
-import prismicLogo from "../images/logo-prismic.svg"
-
 export const Footer = () => (
-  <footer>
-    <p>
-      Proudly published with{" "}
-      <a href="https://prismic.io" target="_blank" rel="noopener noreferrer">
-        Prismic
-      </a>
-      <br />
-      <a href="https://prismic.io" target="_blank" rel="noopener noreferrer">
-        <img className="footer-logo" src={prismicLogo} alt="Prismic logo" />
-      </a>
-    </p>
+  <footer class="footer">
+    <div className="footer__container container container--flex">
+      <div className="footer__now-playing">
+        Now Playing
+      </div>
+
+      <span className="footer__attribution">
+        Built by{" "}
+        <a
+          href="https://www.jessehigson.com"
+          rel="nofollow noopener noreferrer"
+          target="_blank"
+          title="Built by Jesse Higson"
+        >
+          Jesse Higson
+        </a>
+      </span>
+    </div>
   </footer>
 )
