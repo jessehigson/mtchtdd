@@ -7,15 +7,9 @@ export const About = () => {
     <section className="about">
       <div className="about__container container">
         {heading && (
-          <Heading
-            className="about__title"
-            text={heading.text}
-            level="1"
-          />
+          <Heading className="about__title" text={heading.text} level="1" />
         )}
-        {content && (
-          <RichText render={content.raw} />
-        )}
+        {content && <RichText render={content.raw} />}
       </div>
     </section>
   )

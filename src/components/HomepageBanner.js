@@ -1,6 +1,6 @@
 // HomepageBanner.js file
 
-import * as React from 'react'
+import * as React from "react"
 
 export const HomepageBanner = ({
   aboutTitle,

@@ -9,9 +9,7 @@ export const Header = () => {
           <span>Digital Designer</span>
         </h1>
 
-        <div className="header__video-toggle">
-          Video Toggle
-        </div>
+        <div className="header__video-toggle">Video Toggle</div>
       </div>
     </header>
   )

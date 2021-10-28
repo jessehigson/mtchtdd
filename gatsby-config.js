@@ -26,9 +26,9 @@ module.exports = {
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         linkResolver: require("./src/utils/link-resolver").linkResolver,
         schemas: {
-          homepage: require('./custom_types/homepage.json'),
-          navigation: require('./custom_types/navigation.json'),
-          page: require('./custom_types/page.json'),
+          homepage: require("./custom_types/homepage.json"),
+          navigation: require("./custom_types/navigation.json"),
+          page: require("./custom_types/page.json"),
         },
       },
     },

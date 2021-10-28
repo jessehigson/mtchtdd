@@ -1,12 +1,12 @@
 // index.js file
 
-import * as React from 'react'
-import { graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
+import * as React from "react"
+import { graphql } from "gatsby"
+import { RichText } from "prismic-reactjs"
 
-import { Layout } from '../components/Layout'
-import { Seo } from '../components/Seo'
-import { HomepageBanner } from '../components/HomepageBanner'
+import { Layout } from "../components/Layout"
+import { Seo } from "../components/Seo"
+import { HomepageBanner } from "../components/HomepageBanner"
 
 const HomeTemplate = ({ data }) => {
   if (!data) return null

@@ -1,9 +1,9 @@
 // LinkResolver.js file
 
-exports.linkResolver = (doc) => {
-  if (doc.type === 'page') {
+exports.linkResolver = doc => {
+  if (doc.type === "page") {
     return `/${doc.uid}`
   }
 
-  return '/'
+  return "/"
 }

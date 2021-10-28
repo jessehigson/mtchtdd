@@ -1,8 +1,8 @@
-import * as React from 'react'
+import * as React from "react"
 
-import { Header } from './Header'
-import { Footer } from './Footer'
-import '../assets/scss/style.sass'
+import { Header } from "./Header"
+import { Footer } from "./Footer"
+import "../assets/scss/style.sass"
 
 export const Layout = ({ isHomepage, children, navigation }) => (
   <>

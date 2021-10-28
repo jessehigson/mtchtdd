@@ -1,11 +1,9 @@
 import * as React from "react"
 
 export const Footer = () => (
-  <footer class="footer">
+  <footer className="footer">
     <div className="footer__container container container--flex">
-      <div className="footer__now-playing">
-        Now Playing
-      </div>
+      <div className="footer__now-playing">Now Playing</div>
 
       <span className="footer__attribution">
         Built by{" "}
