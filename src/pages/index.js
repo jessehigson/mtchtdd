@@ -16,8 +16,10 @@ const HomeTemplate = ({ data }) => {
     <Layout isHomepage>
       <Seo title="Home" />
       <HomepageBanner
-        title={RichText.asText(doc.about_title.raw)}
-        content={RichText.asText(doc.about_content.raw)}
+        aboutTitle={RichText.asText(doc.about_title.raw)}
+        aboutContent={RichText.asText(doc.about_content.raw)}
+        workTitle={RichText.asText(doc.work_title.raw)}
+        workContent={RichText.asText(doc.work_content.raw)}
       />
     </Layout>
   )
@@ -31,6 +33,12 @@ export const query = graphql`
           raw
         }
         about_content {
+          raw
+        }
+        work_title {
+          raw
+        }
+        work_content {
           raw
         }
       }

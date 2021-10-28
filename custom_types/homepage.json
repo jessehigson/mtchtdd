@@ -4,7 +4,7 @@
       "type": "StructuredText",
       "config": {
         "single": "heading2",
-        "label": "About title",
+        "label": "About Title",
         "placeholder": "About Me"
       }
     },
@@ -14,6 +14,22 @@
         "multi": "paragraph",
         "label": "About Content",
         "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac egestas amet sem urna nisl odio.Diam sed gravida mauris interdum dolor nullam. Adipiscing turpis mattis dictum pellentesque."
+      }
+    },
+    "work_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Work Title",
+        "placeholder": "Currently"
+      }
+    },
+    "work_content": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Work Content",
+        "placeholder": "Thursday Studio"
       }
     }
   }
