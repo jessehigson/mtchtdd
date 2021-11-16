@@ -40,6 +40,17 @@ module.exports = {
         icon: "src/images/favicon.png",
       },
     },
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`webp`],
+          quality: 90,
+          breakpoints: new Array(7).fill(0).map((_, i) => (i + 1) * 400),
+        },
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -49,5 +60,6 @@ module.exports = {
     },
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-sass",
+    "gatsby-transformer-sharp",
   ],
 }
