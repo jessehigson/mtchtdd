@@ -1,8 +1,11 @@
 .homepage-banner
   +spacing
-  align-items: center
+  align-items: stretch
   display: flex
   min-height: 100vh
+
+  &__container
+    align-items: stretch
 
   &__column
     flex: 0 0 100%
@@ -10,13 +13,33 @@
     @media (min-width: $smallDesktop)
       flex-basis: 50%
 
+    &--left
+      align-items: center
+
+      @media (min-width: $smallDesktop)
+        display: flex
+        justify-content: space-between
+
     &--right
       @media (min-width: $smallDesktop)
-        text-align: right
+        flex-basis: calc(50% - 2em)
+        margin-left: 2em
 
-  &__title
-    font-size: 1em
+  &__about,
+  &__work
+    &-title
+      font-size: 1em
 
-  &__content
-    .homepage-banner__column--left &
+  &__about
+    &-content
       max-width: 22em
+
+  &__work
+    @media (min-width: $smallDesktop)
+      text-align: right
+
+  &__video
+    background: #959983
+    border-radius: .625em
+    height: 100%
+    width: 100%

@@ -5,8 +5,13 @@
   width: 100%
 
   &__container
-    align-items: stretch
-    justify-content: space-between
+    &-inner
+      align-items: flex-start
+      display: flex
+      justify-content: space-between
+
+      @media (min-width: $smallDesktop)
+        width: 50%
 
   &__title
     span
