@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
+import { NowPlaying } from './now-playing'
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -20,9 +21,11 @@ const Footer = () => {
         <div className="footer__container container">
           <div className="footer__container-inner">
             <div className="footer__column">
-              <div className="footer__now-playing">Now Playing</div>
+              <NowPlaying
+                userName={process.env.LAST_FM_USERNAME}
+                apiKey={process.env.LAST_FM_API_KEY}
+              />
             </div>
-
             <div className="footer__column">
               <ul className="footer__links-list">
                 <li className="footer__links-list-item">
