@@ -1,16 +1,13 @@
-// gatsby-config.js file
+const path = require("path")
+const dotenv = require("dotenv")
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const prismicConfig = require("./prismic-configuration")
+
 module.exports = {
-  flags: {
-    PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    PRESERVE_WEBPACK_CACHE: true,
-    DEV_SSR: true,
-    FAST_DEV: true,
-  },
   siteMetadata: {
     title: `Mitchell Todd`,
     description: `Mitchell Todd, Digital Designer`,
@@ -21,45 +18,68 @@ module.exports = {
     {
       resolve: "gatsby-source-prismic",
       options: {
-        repositoryName: process.env.PRISMIC_API_REPOSITORY_NAME,
-        accessToken: process.env.PRISMIC_API_ACCESS_TOKEN,
+        repositoryName: prismicConfig.prismicRepo,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         linkResolver: require("./src/utils/link-resolver").linkResolver,
-        schemas: {
-          homepage: require("./custom_types/homepage.json"),
-          navigation: require("./custom_types/navigation.json"),
-          page: require("./custom_types/page.json"),
-        },
       },
     },
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: "gatsby-plugin-prismic-previews",
       options: {
-        icon: "src/images/favicon.png",
+        repositoryName: prismicConfig.prismicRepo,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+      },
+    },
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        defaults: {
-          formats: [`webp`],
-          quality: 90,
-          breakpoints: new Array(7).fill(0).map((_, i) => (i + 1) * 400),
-        },
+        name: "mtchtdd-com",
+        short_name: "mtchtdd",
+        start_url: "/",
+        background_color: "#FF4C02",
+        theme_color: "#FF4C02",
+        display: "minimal-ui",
+        icon: path.resolve(__dirname, "src", "images", "favicon.png"),
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images`,
+        path: path.resolve(__dirname, "src", "images"),
       },
     },
-    "gatsby-plugin-gatsby-cloud",
-    "gatsby-plugin-sass",
-    "gatsby-transformer-sharp",
+    `gatsby-plugin-remove-trailing-slashes`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.mtchtdd.com",
+        sitemap: "https://www.mtchtdd.com/sitemap/sitemap-index.xml",
+        resolveEnv: () => process.env.GATSBY_ENV,
+        env: {
+          development: {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+          },
+          production: {
+            policy: [{ userAgent: "*", allow: "/" }],
+          },
+        },
+      },
+    },
   ],
 }
