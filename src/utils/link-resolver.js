@@ -11,28 +11,12 @@
  */
 exports.linkResolver = doc => {
   switch (doc.type) {
-    // dynamic project pages
-    case 'project': {
-      return `/project/${doc.uid}`
-    }
-
-    // dynamic legal pages
-    case 'legalpage': {
-      return `/legal/${doc.uid}`
-    }
-
     // static pages
-    case 'biography': {
-      return `/biography`
-    }
-    case 'contact': {
-      return `/contact`
+    case 'about': {
+      return `/about`
     }
     case 'homepage': {
       return `/`
-    }
-    case 'newsfeed': {
-      return `/news-feed`
     }
 
     default:

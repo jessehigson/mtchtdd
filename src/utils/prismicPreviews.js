@@ -10,13 +10,8 @@ import { componentResolverFromMap } from 'gatsby-plugin-prismic-previews'
 import { prismicRepo } from '../../prismic-configuration'
 import { linkResolver } from './link-resolver'
 
-import Project from '../templates/project'
-import Legal from '../templates/legal'
-
-import Biography from '../pages/biography'
-import Contact from '../pages/contact'
+import About from '../pages/about'
 import Index from '../pages/index'
-import News from '../pages/news-feed'
 
 /**
  * Prismic preview configuration for each repository in your app. This set of
@@ -32,12 +27,8 @@ export const repositoryConfigs = [
     repositoryName: prismicRepo,
     linkResolver,
     componentResolver: componentResolverFromMap({
-      project: Project,
-      biography: Biography,
-      contact: Contact,
+      about: About,
       index: Index,
-      news: News,
-      legal: Legal,
     }),
   },
 ]

@@ -1,11 +1,11 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { Layout } from "../components/Layout"
-import { Seo } from "../components/Seo"
+import * as React from 'react'
+import { Link } from 'gatsby'
+import { Layout } from '../components/layout'
+import { Seo } from '../components/seo'
 
-import skiLiftChairs from "../images/ski-lift-chairs.jpeg"
-import mountainRange from "../images/mountain-range.jpeg"
-import forrestAerialShot from "../images/forrest-aerial-shot.jpeg"
+import skiLiftChairs from '../images/ski-lift-chairs.jpeg'
+import mountainRange from '../images/mountain-range.jpeg'
+import forrestAerialShot from '../images/forrest-aerial-shot.jpeg'
 
 const About = () => (
   <Layout>

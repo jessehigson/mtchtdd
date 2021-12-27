@@ -1,32 +1,30 @@
-// index.js file
+import React from 'react'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { graphql } from 'gatsby'
+import { Seo } from '../components/seo'
+import { HomepageBanner } from '../components/homepage-banner'
+import { RichText } from 'prismic-reactjs'
 
-import * as React from "react"
-import { graphql } from "gatsby"
-import { RichText } from "prismic-reactjs"
-
-import { Layout } from "../components/Layout"
-import { Seo } from "../components/Seo"
-import { HomepageBanner } from "../components/HomepageBanner"
-
-const HomeTemplate = ({ data }) => {
+const Index = ({ data }) => {
   if (!data) return null
-  const doc = data.prismicHomepage.data
+
+  const pageData = data.prismicHomepage.data
 
   return (
-    <Layout isHomepage>
-      <Seo title="Home" />
+    <>
+      <Seo data={pageData} />
       <HomepageBanner
-        aboutTitle={RichText.asText(doc.about_title.raw)}
-        aboutContent={RichText.asText(doc.about_content.raw)}
-        workTitle={RichText.asText(doc.work_title.raw)}
-        workContent={RichText.asText(doc.work_content.raw)}
+        aboutTitle={RichText.asText(pageData.about_title.raw)}
+        aboutContent={RichText.asText(pageData.about_content.raw)}
+        workTitle={RichText.asText(pageData.work_title.raw)}
+        workContent={RichText.asText(pageData.work_content.raw)}
       />
-    </Layout>
+    </>
   )
 }
 
 export const query = graphql`
-  query Homepage {
+  query HomepageQuery {
     prismicHomepage {
       data {
         about_title {
@@ -46,4 +44,4 @@ export const query = graphql`
   }
 `
 
-export default HomeTemplate
+export default withPrismicPreview(Index)

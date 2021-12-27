@@ -1,13 +1,25 @@
-import * as React from "react"
+import * as React from 'react'
+import { graphql, StaticQuery, useStaticQuery } from 'gatsby'
 
-import { Header } from "./Header"
-import { Footer } from "./Footer"
-import "../assets/scss/style.sass"
+import Footer from './footer'
+import Header from './header'
 
-export const Layout = ({ isHomepage, children, navigation }) => (
-  <>
-    <Header isHomepage={isHomepage} navigation={navigation} />
-    {children}
-    <Footer />
-  </>
-)
+export const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  return (
+    <>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <main>{children}</main>
+      <Footer siteTitle={data.site.siteMetadata?.title || `Title`} />
+    </>
+  )
+}
