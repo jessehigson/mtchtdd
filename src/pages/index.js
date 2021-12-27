@@ -14,10 +14,10 @@ const Index = ({ data }) => {
     <>
       <Seo data={pageData} />
       <HomepageBanner
-        aboutTitle={RichText.asText(pageData.about_title.raw)}
-        aboutContent={RichText.asText(pageData.about_content.raw)}
-        workTitle={RichText.asText(pageData.work_title.raw)}
-        workContent={RichText.asText(pageData.work_content.raw)}
+        aboutTitle={RichText.asText(pageData.about_title.richText)}
+        aboutContent={RichText.asText(pageData.about_content.richText)}
+        workTitle={RichText.asText(pageData.work_title.richText)}
+        workContent={RichText.asText(pageData.work_content.richText)}
       />
     </>
   )
@@ -28,16 +28,16 @@ export const query = graphql`
     prismicHomepage {
       data {
         about_title {
-          raw
+          richText
         }
         about_content {
-          raw
+          richText
         }
         work_title {
-          raw
+          richText
         }
         work_content {
-          raw
+          richText
         }
       }
     }

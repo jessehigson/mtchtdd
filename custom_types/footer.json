@@ -1,0 +1,11 @@
+{
+  "Main": {
+    "email": {
+      "type": "Text",
+      "config": {
+        "label": "Email",
+        "placeholder": "hello@mtchtdd.com"
+      }
+    }
+  }
+}
