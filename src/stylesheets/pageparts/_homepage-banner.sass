@@ -42,8 +42,17 @@
     &-content
       white-space: pre-wrap
 
-  &__video
+  .video
     background: #959983
     border-radius: .625em
     height: 100%
+    padding: 2em
     width: 100%
+
+    &__wrapper
+      height: 100%
+      position: relative
+      width: 100%
+
+    &__player
+      +cover

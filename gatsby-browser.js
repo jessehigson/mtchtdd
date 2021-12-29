@@ -4,11 +4,14 @@ import { repositoryConfigs } from './src/utils/prismicPreviews'
 import './src/stylesheets/main.sass'
 import { Layout } from './src/components/layout'
 import { LocationProvider } from '@reach/router'
+import VideoContextProvider from './src/context/video-context-provider'
 
 export const wrapRootElement = ({ element }) => (
   <PrismicPreviewProvider repositoryConfigs={repositoryConfigs}>
     <LocationProvider>
-      <Layout prevLocation>{element}</Layout>
+      <VideoContextProvider>
+        <Layout prevLocation>{element}</Layout>
+      </VideoContextProvider>
     </LocationProvider>
   </PrismicPreviewProvider>
 )

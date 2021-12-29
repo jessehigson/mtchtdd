@@ -1,6 +1,7 @@
 // HomepageBanner.js file
 
 import * as React from 'react'
+import Video from './video'
 
 export const HomepageBanner = ({
   aboutTitle,
@@ -23,7 +24,7 @@ export const HomepageBanner = ({
       </div>
 
       <div className="homepage-banner__column homepage-banner__column--right">
-        <div className="homepage-banner__video"></div>
+        <Video url="/video/cash.mp4" />
       </div>
     </div>
   </section>
