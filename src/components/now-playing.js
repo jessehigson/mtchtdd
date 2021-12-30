@@ -24,16 +24,15 @@ export const NowPlaying = ({ userName, apiKey }) => {
     const track = lfmData?.recenttracks?.track
 
     if (error) {
-      return <p>{error}</p>
+      return <span>{error}</span>
     }
 
     if (!track) {
-      return <p>Loading</p>
+      return <span>Loading</span>
     }
 
-    const [
-      { name: songName, artist: { '#text': artistName } = {} } = {},
-    ] = track
+    const [{ name: songName, artist: { '#text': artistName } = {} } = {}] =
+      track
 
     return (
       <div className="now-playing">
