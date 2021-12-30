@@ -1,9 +1,11 @@
 .header
   padding: 3.4375em 0
   pointer-events: none
-  position: fixed
-  top: 0
   width: 100%
+
+  @media (min-width: $smallDesktop)
+    position: fixed
+    top: 0
 
   &__container
     &-inner

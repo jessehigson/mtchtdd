@@ -1,11 +1,17 @@
 .homepage-banner
-  +spacing
   align-items: stretch
   display: flex
   min-height: 100vh
 
+  @media (min-width: $smallDesktop)
+    +spacing
+
   &__container
-    align-items: stretch
+    flex-wrap: wrap
+
+    @media (min-width: $smallDesktop)
+      align-items: stretch
+      flex-wrap: nowrap
 
   &__column
     flex: 0 0 100%
@@ -20,11 +26,17 @@
         display: flex
 
     &--right
+      @media (max-width: $maxSmallDesktop)
+        order: -1
+
       @media (min-width: $smallDesktop)
         flex-basis: calc(50% - 2em)
         margin-left: 2em
 
   &__content
+    @media (max-width: $maxSmallDesktop)
+      margin-top: 2em
+
     @media (min-width: $smallDesktop)
       display: flex
       flex: 0 0 100%
@@ -35,6 +47,10 @@
     &-title
       font-size: 1em
       margin-bottom: .25em
+
+    @media (max-width: $maxSmallDesktop)
+      &:not(:last-child)
+        margin-bottom: 2em
 
   &__about
     &-content
@@ -55,9 +71,14 @@
     width: 100%
 
     &__wrapper
-      height: 100%
+      height: 0
+      padding-bottom: 129.4688524590164%
       position: relative
       width: 100%
+
+      @media (min-width: $smallDesktop)
+        height: 100%
+        padding-bottom: 0
 
     &__player
       +cover
