@@ -1,0 +1,28 @@
+.site-credit
+  height: $baseline
+  pointer-events: none
+  position: relative
+
+  &__title,
+  &__content
+    height: 100%
+    transition: opacity $transitionDuration $transitionTimingFunction
+
+  &__title
+    pointer-events: all
+    position: absolute
+    right: 0
+
+  &__content
+    opacity: 0
+    pointer-events: none
+
+  &:hover
+    .site-credit
+      &__title
+        opacity: 0
+        pointer-events: none
+
+      &__content
+        opacity: 1
+        pointer-events: all

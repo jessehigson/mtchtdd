@@ -46,10 +46,10 @@ const Footer = () => {
                     rel="nofollow noopener noreferrer"
                     target="_blank"
                     title="Built by Jesse Higson"
-                    className="footer__link"
+                    className="footer__link site-credit"
                   >
-                    Site credit
-                    <span className="screenreader-text">
+                    <span className="site-credit__title">Site credit</span>
+                    <span className="site-credit__content">
                       Built by Jesse Higson
                     </span>
                   </a>
