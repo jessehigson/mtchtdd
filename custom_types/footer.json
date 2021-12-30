@@ -6,6 +6,14 @@
         "label": "Email",
         "placeholder": "hello@mtchtdd.com"
       }
+    },
+    "headshot": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Headshot"
+      }
     }
   }
 }

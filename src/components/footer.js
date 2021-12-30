@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import { NowPlaying } from './now-playing'
+import Image from './image'
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -8,12 +9,25 @@ const Footer = () => {
       prismicFooter {
         data {
           email
+          headshot {
+            fluid {
+              base64
+              src
+            }
+            gatsbyImageData(
+              layout: CONSTRAINED
+              imgixParams: { q: 65 }
+              placeholder: BLURRED
+              breakpoints: [750, 1080, 1366, 1920, 2048, 2560, 3840, 4096, 5120]
+            )
+          }
         }
       }
     }
   `)
 
   const email = data.prismicFooter.data.email
+  const headshot = data.prismicFooter.data.headshot
 
   return (
     <>
@@ -35,6 +49,14 @@ const Footer = () => {
                       title={`Contact ${email}`}
                       href={`mailto:${email}`}
                     >
+                      {headshot && (
+                        <Image
+                          image={headshot}
+                          alt={headshot.alt ? headshot.alt : ''}
+                          className="footer__link-image"
+                          sizes="8em"
+                        />
+                      )}
                       Contact me
                     </a>
                   )}

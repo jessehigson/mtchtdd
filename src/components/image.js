@@ -1,18 +1,17 @@
-import React, { Component } from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
-import atob from "atob"
+import React, { Component } from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import atob from 'atob'
 
 export default class Image extends Component {
   render() {
+    /**
+     * @type {Image} image
+     */
     const { image, ...props } = this.props
 
-    if (image.localFile && image.localFile.childImageSharp) {
+    if (image.gatsbyImageData) {
       return (
-        <GatsbyImage
-          image={image.localFile.childImageSharp.gatsbyImageData}
-          alt={image.alt}
-          {...props}
-        />
+        <GatsbyImage image={image.gatsbyImageData} alt={image.alt} {...props} />
       )
     }
 
@@ -21,12 +20,12 @@ export default class Image extends Component {
     delete props.fadeIn
 
     if (image.fluid) {
-      const stub = "data:image/svg+xml;base64,"
+      const stub = 'data:image/svg+xml;base64,'
       if (image.fluid.base64.includes(stub)) {
         return (
           <div
             dangerouslySetInnerHTML={{
-              __html: atob(image.fluid.base64.replace(stub, "")),
+              __html: atob(image.fluid.base64.replace(stub, '')),
             }}
             {...props}
           />
@@ -38,4 +37,8 @@ export default class Image extends Component {
 
     return <div className="image-placeholder" {...props} />
   }
+}
+
+Image.defaultProps = {
+  loading: 'lazy',
 }
