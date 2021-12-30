@@ -18,18 +18,23 @@
 
       @media (min-width: $smallDesktop)
         display: flex
-        justify-content: space-between
 
     &--right
       @media (min-width: $smallDesktop)
         flex-basis: calc(50% - 2em)
         margin-left: 2em
 
+  &__content
+    @media (min-width: $smallDesktop)
+      display: flex
+      flex: 0 0 100%
+      justify-content: space-between
+
   &__about,
   &__work
     &-title
       font-size: 1em
-      margin-bottom: 0
+      margin-bottom: .25em
 
   &__about
     &-content
