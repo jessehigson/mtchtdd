@@ -1,0 +1,18 @@
+.video-toggle
+  +unbutton
+  font-weight: 500
+  pointer-events: none
+  text-transform: uppercase
+
+  span
+    transition: opacity $transitionDuration $transitionTimingFunction
+
+    &[aria-hidden="true"]
+      opacity: .2
+      pointer-events: all
+
+      &:hover
+        opacity: 1
+
+    &:first-of-type
+      margin-right: 1.5em

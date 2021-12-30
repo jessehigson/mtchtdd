@@ -1,5 +1,6 @@
 .header
   padding: 3.4375em 0
+  pointer-events: none
   position: fixed
   top: 0
   width: 100%
@@ -13,7 +14,13 @@
       @media (min-width: $smallDesktop)
         width: 50%
 
+  &__title,
+  &__video-toggle
+    pointer-events: all
+
   &__title
+    margin: 0
+
     span
       display: block
 

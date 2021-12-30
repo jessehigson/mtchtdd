@@ -1,9 +1,7 @@
-import React, { useContext } from 'react'
-import { VideoContext } from '../context/video-context-provider'
+import React from 'react'
+import VideoToggle from './video-toggle'
 
 const Header = () => {
-  const { isPlaying, toggleIsPlaying } = useContext(VideoContext)
-
   return (
     <>
       <header className="header">
@@ -14,13 +12,7 @@ const Header = () => {
               <span>Todd</span>
             </h1>
 
-            <button
-              className="header__video-toggle"
-              onClick={toggleIsPlaying}
-              aria-checked={isPlaying}
-            >
-              <span>{isPlaying ? 'Pause' : 'Play'} video</span>
-            </button>
+            <VideoToggle />
           </div>
         </div>
       </header>
