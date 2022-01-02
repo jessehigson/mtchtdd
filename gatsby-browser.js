@@ -5,13 +5,16 @@ import './src/stylesheets/main.sass'
 import { Layout } from './src/components/layout'
 import { LocationProvider } from '@reach/router'
 import VideoContextProvider from './src/context/video-context-provider'
+import WorkOverlayContextProvider from './src/context/work-overlay-context-provider'
 
 export const wrapRootElement = ({ element }) => (
   <PrismicPreviewProvider repositoryConfigs={repositoryConfigs}>
     <LocationProvider>
-      <VideoContextProvider>
-        <Layout prevLocation>{element}</Layout>
-      </VideoContextProvider>
+      <WorkOverlayContextProvider>
+        <VideoContextProvider>
+          <Layout prevLocation>{element}</Layout>
+        </VideoContextProvider>
+      </WorkOverlayContextProvider>
     </LocationProvider>
   </PrismicPreviewProvider>
 )

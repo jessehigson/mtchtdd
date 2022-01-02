@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import { Seo } from '../components/seo'
 import { HomepageBanner } from '../components/homepage-banner'
 import { RichText } from 'prismic-reactjs'
+import WorkOverlay from '../components/work-overlay'
 
 const Index = ({ data }) => {
   if (!data) return null
@@ -16,6 +17,10 @@ const Index = ({ data }) => {
       <HomepageBanner
         aboutTitle={RichText.asText(pageData.about_title.richText)}
         aboutContent={RichText.asText(pageData.about_content.richText)}
+        workTitle={RichText.asText(pageData.work_title.richText)}
+        workContent={RichText.asText(pageData.work_content.richText)}
+      />
+      <WorkOverlay
         workTitle={RichText.asText(pageData.work_title.richText)}
         workContent={RichText.asText(pageData.work_content.richText)}
       />

@@ -1,0 +1,36 @@
+{
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "Title",
+        "placeholder": "Thursday Studio"
+      }
+    },
+    "content": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Content",
+        "placeholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac egestas amet sem urna nisl odio.Diam sed gravida mauris interdum dolor nullam. Adipiscing turpis mattis dictum pellentesque."
+      }
+    },
+    "link_url": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Link Url",
+        "select": null,
+        "placeholder": "https://thursday.studio/"
+      }
+    },
+    "link_label": {
+      "type": "Text",
+      "config": {
+        "label": "Link Label",
+        "placeholder": "thursday.studio"
+      }
+    }
+  }
+}
