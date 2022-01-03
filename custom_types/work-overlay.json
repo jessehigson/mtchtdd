@@ -31,6 +31,22 @@
         "label": "Link Label",
         "placeholder": "thursday.studio"
       }
+    },
+    "images": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Image"
+            }
+          }
+        },
+        "label": "Images"
+      }
     }
   }
 }

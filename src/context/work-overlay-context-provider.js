@@ -4,10 +4,12 @@ export const WorkOverlayContext = createContext({
   workOverlayOpen: false,
   toggleWorkOverlay: () => {},
   closeWorkOverlay: () => {},
+  imagesCounter: 0,
 })
 
 export const WorkOverlayContextProvider = ({ children }) => {
   const [workOverlayOpen, setWorkOverlayOpen] = useState(false)
+  const [imagesCounter, setImagesCounter] = useState(0)
 
   const toggleWorkOverlay = useCallback(() => {
     setWorkOverlayOpen(workOverlayOpen => !workOverlayOpen)
@@ -19,11 +21,18 @@ export const WorkOverlayContextProvider = ({ children }) => {
       link.blur()
     }
     setWorkOverlayOpen(false)
-  }, [setWorkOverlayOpen])
+    setImagesCounter(imagesCounter + 1)
+  }, [setWorkOverlayOpen, imagesCounter])
 
   return (
     <WorkOverlayContext.Provider
-      value={{ workOverlayOpen, toggleWorkOverlay, closeWorkOverlay }}
+      value={{
+        workOverlayOpen,
+        toggleWorkOverlay,
+        closeWorkOverlay,
+        imagesCounter,
+        setImagesCounter,
+      }}
     >
       {children}
     </WorkOverlayContext.Provider>

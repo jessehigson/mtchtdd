@@ -18,31 +18,77 @@
     visibility: visible
 
   &__container
-    align-items: center
-    height: 100%
+    flex-wrap: wrap
 
-  &__inner
     @media (min-width: $smallDesktop)
-      display: flex
-      flex: 0 0 50%
-      justify-content: space-between
+      align-items: stretch
+      flex-wrap: nowrap
+      height: 100%
 
   &__column
-    &-title
-      font-size: 1em
-      margin-bottom: .25em
+    flex: 0 0 100%
+    position: relative
 
-    &-content
-      max-width: 24em
-      white-space: pre-wrap
+    @media (min-width: $smallDesktop)
+      flex-basis: 50%
 
-    @media (max-width: $maxSmallDesktop)
-      &:not(:last-child)
-        margin-bottom: 2em
+    &--left
+      align-items: center
 
-    &:last-child
       @media (min-width: $smallDesktop)
-        text-align: right
+        display: flex
+
+    &--right
+      @media (max-width: $maxSmallDesktop)
+        order: -1
+
+      @media (min-width: $smallDesktop)
+        align-items: stretch
+        display: flex
+        flex-basis: calc(50% - 2em)
+        margin-left: 2em
+
+  &__content
+    @media (max-width: $maxSmallDesktop)
+      margin-top: 2em
+
+    @media (min-width: $smallDesktop)
+      display: flex
+      flex: 0 0 100%
+      justify-content: space-between
+
+    &-column
+      &-title
+        font-size: 1em
+        margin-bottom: .25em
+
+      &-content
+        max-width: 24em
+        white-space: pre-wrap
+
+      @media (max-width: $maxSmallDesktop)
+        &:not(:last-child)
+          margin-bottom: 2em
+
+      &:last-child
+        @media (min-width: $smallDesktop)
+          text-align: right
+
+  &__images
+    position: relative
+    width: 100%
+
+    &-item
+      width: 100%
+
+      @media (min-width: $smallDesktop)
+        bottom: 0
+        position: absolute
+        right: 0
+        width: 55%
+
+      &[aria-hidden="true"]
+        display: none
 
   &__footer
     bottom: 0
