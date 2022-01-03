@@ -24,22 +24,40 @@ export const NowPlaying = ({ userName, apiKey }) => {
     const track = lfmData?.recenttracks?.track
 
     if (error) {
-      return <span>{error}</span>
+      console.log(error)
     }
 
     if (!track) {
-      return <span>Loading</span>
+      return null
     }
 
-    const [{ name: songName, artist: { '#text': artistName } = {} } = {}] =
-      track
+    const image = track[0].image.find(i => {
+      return i.size === 'extralarge'
+    })
+
+    const name = track[0].name
+    const artist = track[0].artist['#text']
+    const art = image?.['#text'] ?? track[0].image[0]['#text']
+    const url = track[0].url
 
     return (
       <div className="now-playing">
         <h4 className="now-playing__title">Playing</h4>
-        <span className="now-playing__artist">{artistName}</span>
-        &nbsp;-&nbsp;
-        <span className="now-playing__song">{songName}</span>
+        <a
+          href={url}
+          rel="nofollow noopener"
+          target="_blank"
+          className="now-playing__link"
+        >
+          <img
+            src={art}
+            alt={`The artwork for the song ${name} by the artist ${artist}`}
+            className="now-playing__art"
+          />
+          <span className="now-playing__artist">{artist}</span>
+          &nbsp;-&nbsp;
+          <span className="now-playing__song">{name}</span>
+        </a>
       </div>
     )
   }
