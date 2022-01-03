@@ -36,8 +36,8 @@ const Footer = () => {
           <div className="footer__container-inner">
             <div className="footer__column">
               <NowPlaying
-                userName={process.env.LAST_FM_USERNAME}
-                apiKey={process.env.LAST_FM_API_KEY}
+                userName={process.env.GATSBY_LAST_FM_USERNAME}
+                apiKey={process.env.GATSBY_LAST_FM_API_KEY}
               />
             </div>
             <div className="footer__column">

@@ -25,8 +25,6 @@ export const NowPlaying = ({ userName, apiKey }) => {
 
     if (error) {
       console.log(error)
-      console.log(userName)
-      console.log(apiKey)
     }
 
     if (!track) {
