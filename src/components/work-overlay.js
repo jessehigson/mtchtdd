@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import React, { useContext } from 'react'
 import { WorkOverlayContext } from '../context/work-overlay-context-provider'
+import useLockBodyScroll from '../hooks/use-lock-body-scroll'
 import Image from './image'
 
 const WorkOverlay = () => {
@@ -71,6 +72,7 @@ const WorkOverlay = () => {
   const linkLabel = data.prismicWorkOverlay.data.link_label
   const linkUrl = data.prismicWorkOverlay.data.link_url
   const images = data.prismicWorkOverlay.data.images
+  useLockBodyScroll(workOverlayOpen)
 
   const handleClick = () => {
     closeWorkOverlay()
