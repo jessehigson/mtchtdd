@@ -1,10 +1,12 @@
 .header
   padding: 3.4375em 0
   pointer-events: none
-  position: fixed
   top: 0
   width: 100%
   z-index: 999
+
+  @media (min-width: $smallDesktop)
+    position: fixed
 
   &--modifier-white
     color: $white
