@@ -50,7 +50,7 @@ export const HomepageBanner = ({
           </div>
 
           <div className="homepage-banner__column homepage-banner__column--right">
-            <Video url="/video/cash.mp4" />
+            <Video url="/video/showreel.mp4" />
           </div>
         </div>
       </section>
