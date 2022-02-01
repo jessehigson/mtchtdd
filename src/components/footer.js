@@ -54,7 +54,7 @@ const Footer = () => {
                           image={headshot}
                           alt={headshot.alt ? headshot.alt : ''}
                           className="footer__link-image"
-                          sizes="8.25em"
+                          sizes="9.571428571428571em"
                         />
                       )}
                       Contact me

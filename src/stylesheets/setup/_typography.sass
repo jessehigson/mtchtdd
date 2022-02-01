@@ -14,9 +14,9 @@
 
 body
   +primaryFont
-  +clamp('font-size', 14px, 16px, 375px, 1440px)
-  line-height: $baseline
   color: $black
+  font-size: 14px
+  line-height: $baseline
 
 %h1, %h2, %h3, %h4, %h5
   --font-size: 1
@@ -28,7 +28,8 @@ body
   text-transform: uppercase
 
 %h1
-  --font-size: 2.25
+  --font-size: 3.25
+  line-height: 0.7em
 
 h1
   @extend %h1
