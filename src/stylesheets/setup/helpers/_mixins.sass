@@ -34,38 +34,32 @@
   +gutterRight
 
 =spacingTop
-  padding-top: $blockSpacerMobile
-
-  @media (min-width: $smallDesktop)
-    padding-top: $blockSpacerDesktop
+  padding-top: $blockSpacer
 
 =spacingBottom
-  padding-bottom: $blockSpacerMobile
-
-  @media (min-width: $smallDesktop)
-    padding-bottom: $blockSpacerDesktop
+  padding-bottom: $blockSpacer
 
 =spacing
   +spacingTop
   +spacingBottom
 
 =opacityHover
-  transition: opacity $transitionDuration $transitionTimingFunction
   opacity: 1
+  transition: opacity $transitionDuration $transitionTimingFunction
 
   &:hover
     opacity: $opacityHover
 
 =imageRatio($padding)
-  overflow: hidden
-  position: relative
   height: 0
+  overflow: hidden
   padding-top: ($padding * 1%)
+  position: relative
 
   .gatsby-image-wrapper
     +cover
 
 =pseudoBasics
-  display: block
   content: ""
+  display: block
   position: absolute
