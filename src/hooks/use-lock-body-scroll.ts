@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 
 function useLockBodyScroll(toggle: boolean): void {
   useEffect(() => {
-    document.body.style.overflow = toggle ? 'hidden' : 'visible'
+    document.body.style.overflowY = toggle ? 'hidden' : 'visible'
     return () => {
-      document.body.style.overflow = 'visible'
+      document.body.style.overflowY = 'visible'
     }
   }, [toggle])
 }
