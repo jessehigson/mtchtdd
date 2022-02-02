@@ -1,15 +1,21 @@
-.error-page
-  +spacingBottom
-  text-align: center
+.error
+  +spacing
+  align-items: center
+  display: flex
+  min-height: 68vh
 
-  @media (min-width: 1px)
-    padding-top: ($baseline * 7)
+  @media (min-width: $smallDesktop)
+    min-height: 100vh
+
+  &__container
+    flex-wrap: wrap
 
     @media (min-width: $smallDesktop)
-      padding-top: ($baseline * 9)
+      align-items: stretch
+      flex-wrap: nowrap
 
-  &__status-code
-    @extend %h5
+  &__column
+    flex: 0 0 100%
 
-  &__title
-    line-height: 0.96em
+    @media (min-width: $smallDesktop)
+      flex-basis: 50%

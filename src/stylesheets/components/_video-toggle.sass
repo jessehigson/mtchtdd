@@ -1,8 +1,12 @@
 .video-toggle
+  display: none
   font-size: 1em
   font-weight: 500
   pointer-events: none
   text-transform: uppercase
+
+  .page--home &
+    display: block
 
   span
     transition: opacity $transitionDuration $transitionTimingFunction
