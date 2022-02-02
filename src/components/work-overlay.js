@@ -122,7 +122,7 @@ const WorkOverlay = () => {
                     )}
                   </div>
 
-                  <span className="work-trigger__label screenreader-text">
+                  <span className="overlay-trigger__label screenreader-text">
                     Close
                     <span className="screenreader-text"> Work Overlay</span>
                   </span>
