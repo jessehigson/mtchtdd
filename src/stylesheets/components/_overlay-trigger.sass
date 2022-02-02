@@ -1,9 +1,24 @@
 .overlay-trigger
-  +opacityHover
-  @extend %h3
-  display: inline-block
-  font-size: 1em
-  margin: 0
+  +unbutton
 
-  @media (min-width: $smallDesktop)
-    margin-top: .5em
+  @media (max-width: $maxSmallDesktop)
+    align-items: flex-start
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    width: 100%
+
+  &__label
+    +opacityHover
+    @extend %h3
+    display: inline-block
+    font-size: 1em
+    margin: 0
+
+    @media (max-width: $maxSmallDesktop)
+      left: initial
+      position: initial
+      top: initial
+
+    @media (min-width: $smallDesktop)
+      margin-top: .5em

@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`header ${workOverlayOpen ? ' header--modifier-white' : ''}`}
+        className={`header${workOverlayOpen ? ' header--modifier-white' : ''}`}
       >
         <div className="header__container container">
           <div className="header__container-inner">

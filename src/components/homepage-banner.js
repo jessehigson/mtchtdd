@@ -1,6 +1,6 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import React, { useContext } from 'react'
 import { WorkOverlayContext } from '../context/work-overlay-context-provider'
+import { CursorContext } from '../context/cursor-context-provider'
 import Video from './video'
 
 export const HomepageBanner = ({
@@ -9,7 +9,8 @@ export const HomepageBanner = ({
   workTitle,
   workContent,
 }) => {
-  const { workOverlayOpen, toggleWorkOverlay } = useContext(WorkOverlayContext)
+  const { toggleWorkOverlay } = useContext(WorkOverlayContext)
+  const { toggleIsActive } = useContext(CursorContext)
 
   return (
     <>
@@ -30,22 +31,28 @@ export const HomepageBanner = ({
               </div>
 
               <div className="homepage-banner__work">
-                <div className="homepage-banner__work-inner">
-                  {workTitle && (
-                    <h2 className="homepage-banner__work-title">{workTitle}</h2>
-                  )}
-                  {workContent && (
-                    <div className="homepage-banner__work-content">
-                      {workContent}
-                    </div>
-                  )}
-                </div>
-
                 <button
                   onClick={toggleWorkOverlay}
+                  onMouseEnter={toggleIsActive}
+                  onMouseLeave={toggleIsActive}
                   className="homepage-banner__overlay-trigger overlay-trigger"
                 >
-                  View<span className="screenreader-text"> Work Overlay</span>
+                  <div className="homepage-banner__work-inner">
+                    {workTitle && (
+                      <h2 className="homepage-banner__work-title">
+                        {workTitle}
+                      </h2>
+                    )}
+                    {workContent && (
+                      <div className="homepage-banner__work-content">
+                        {workContent}
+                      </div>
+                    )}
+                  </div>
+
+                  <span className="overlay-trigger__label screenreader-text">
+                    View<span className="screenreader-text"> Work Overlay</span>
+                  </span>
                 </button>
               </div>
             </div>

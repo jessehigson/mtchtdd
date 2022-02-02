@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import React, { useContext } from 'react'
 import { WorkOverlayContext } from '../context/work-overlay-context-provider'
+import { CursorContext } from '../context/cursor-context-provider'
 import useLockBodyScroll from '../hooks/use-lock-body-scroll'
 import Image from './image'
 
@@ -64,6 +65,7 @@ const WorkOverlay = () => {
 
   const { workOverlayOpen, closeWorkOverlay, imagesCounter, setImagesCounter } =
     useContext(WorkOverlayContext)
+  const { toggleIsActive } = useContext(CursorContext)
 
   const title = data.prismicWorkOverlay.data.title
   const content = data.prismicWorkOverlay.data.content
@@ -101,24 +103,29 @@ const WorkOverlay = () => {
                 )}
               </div>
               <div className="work-overlay__content-column">
-                <div className="work-overlay__content-column-inner">
-                  {workTitle && (
-                    <h4 className="work-overlay__content-column-title">
-                      {RichText.asText(workTitle.richText)}
-                    </h4>
-                  )}
-                  {workContent && (
-                    <div className="work-overlay__content-column-content">
-                      {RichText.asText(workContent.richText)}
-                    </div>
-                  )}
-                </div>
-
                 <button
                   onClick={handleClick}
+                  onMouseEnter={toggleIsActive}
+                  onMouseLeave={toggleIsActive}
                   className="work-overlay__overlay-trigger overlay-trigger"
                 >
-                  Close<span className="screenreader-text"> Work Overlay</span>
+                  <div className="work-overlay__content-column-inner">
+                    {workTitle && (
+                      <h4 className="work-overlay__content-column-title">
+                        {RichText.asText(workTitle.richText)}
+                      </h4>
+                    )}
+                    {workContent && (
+                      <div className="work-overlay__content-column-content">
+                        {RichText.asText(workContent.richText)}
+                      </div>
+                    )}
+                  </div>
+
+                  <span className="work-trigger__label screenreader-text">
+                    Close
+                    <span className="screenreader-text"> Work Overlay</span>
+                  </span>
                 </button>
               </div>
             </div>

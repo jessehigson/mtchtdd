@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
+import { CursorContext } from '../context/cursor-context-provider'
 
 const Cursor = () => {
+  const { isActive } = useContext(CursorContext)
+
   const cursor = useRef(null)
   const endX = useRef(0)
   const endY = useRef(0)
@@ -23,7 +26,10 @@ const Cursor = () => {
 
   return (
     <>
-      <span className="cursor" ref={cursor}></span>
+      <span
+        className={`cursor${isActive ? ' cursor--active' : ''}`}
+        ref={cursor}
+      ></span>
     </>
   )
 }
