@@ -30,14 +30,16 @@ export const HomepageBanner = ({
               </div>
 
               <div className="homepage-banner__work">
-                {workTitle && (
-                  <h2 className="homepage-banner__work-title">{workTitle}</h2>
-                )}
-                {workContent && (
-                  <div className="homepage-banner__work-content">
-                    {workContent}
-                  </div>
-                )}
+                <div className="homepage-banner__work-inner">
+                  {workTitle && (
+                    <h2 className="homepage-banner__work-title">{workTitle}</h2>
+                  )}
+                  {workContent && (
+                    <div className="homepage-banner__work-content">
+                      {workContent}
+                    </div>
+                  )}
+                </div>
 
                 <button
                   onClick={toggleWorkOverlay}

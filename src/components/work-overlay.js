@@ -101,16 +101,18 @@ const WorkOverlay = () => {
                 )}
               </div>
               <div className="work-overlay__content-column">
-                {workTitle && (
-                  <h4 className="work-overlay__content-column-title">
-                    {RichText.asText(workTitle.richText)}
-                  </h4>
-                )}
-                {workContent && (
-                  <div className="work-overlay__content-column-content">
-                    {RichText.asText(workContent.richText)}
-                  </div>
-                )}
+                <div className="work-overlay__content-column-inner">
+                  {workTitle && (
+                    <h4 className="work-overlay__content-column-title">
+                      {RichText.asText(workTitle.richText)}
+                    </h4>
+                  )}
+                  {workContent && (
+                    <div className="work-overlay__content-column-content">
+                      {RichText.asText(workContent.richText)}
+                    </div>
+                  )}
+                </div>
 
                 <button
                   onClick={handleClick}
