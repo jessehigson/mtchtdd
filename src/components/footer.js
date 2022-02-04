@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import React, { useContext } from 'react'
 import { NowPlaying } from './now-playing'
 import Image from './image'
@@ -68,8 +68,8 @@ const Footer = () => {
                 </li>
 
                 <li className="footer__links-list-item">
-                  <a
-                    href="https://www.jessehigson.com"
+                  <Link
+                    to="https://www.jessehigson.com"
                     rel="nofollow noopener noreferrer"
                     target="_blank"
                     title="Built by Jesse Higson"
@@ -81,7 +81,7 @@ const Footer = () => {
                     <span className="site-credit__content">
                       Built by Jesse Higson
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

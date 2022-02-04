@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React, { useState, useEffect, useContext } from 'react'
 import { CursorContext } from '../context/cursor-context-provider'
 
@@ -46,8 +47,8 @@ export const NowPlaying = ({ userName, apiKey }) => {
     return (
       <div className="now-playing">
         <h4 className="now-playing__title">Playing</h4>
-        <a
-          href={url}
+        <Link
+          to={url}
           rel="nofollow noopener"
           target="_blank"
           onMouseEnter={toggleCursorActive}
@@ -72,7 +73,7 @@ export const NowPlaying = ({ userName, apiKey }) => {
               {artist}&nbsp;-&nbsp;{name}
             </span>
           </div>
-        </a>
+        </Link>
       </div>
     )
   }
