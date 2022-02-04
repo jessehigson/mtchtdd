@@ -59,9 +59,19 @@ export const NowPlaying = ({ userName, apiKey }) => {
             alt={`The artwork for the song ${name} by the artist ${artist}`}
             className="now-playing__art"
           />
-          <span className="now-playing__artist">{artist}</span>
-          &nbsp;-&nbsp;
-          <span className="now-playing__song">{name}</span>
+          <div className="now-playing__content">
+            <span>
+              {artist}&nbsp;-&nbsp;{name}
+            </span>
+            &nbsp;&nbsp;
+            <span aria-hidden="true">
+              {artist}&nbsp;-&nbsp;{name}
+            </span>
+            &nbsp;&nbsp;
+            <span aria-hidden="true">
+              {artist}&nbsp;-&nbsp;{name}
+            </span>
+          </div>
         </a>
       </div>
     )
