@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from 'react'
 import { CursorContext } from '../context/cursor-context-provider'
 
 const Cursor = () => {
-  const { isActive } = useContext(CursorContext)
+  const { cursorActive } = useContext(CursorContext)
 
   const cursor = useRef(null)
   const endX = useRef(0)
@@ -27,7 +27,7 @@ const Cursor = () => {
   return (
     <>
       <span
-        className={`cursor${isActive ? ' cursor--active' : ''}`}
+        className={`cursor${cursorActive ? ' cursor--active' : ''}`}
         ref={cursor}
       ></span>
     </>

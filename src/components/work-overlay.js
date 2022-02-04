@@ -65,7 +65,7 @@ const WorkOverlay = () => {
 
   const { workOverlayOpen, closeWorkOverlay, imagesCounter, setImagesCounter } =
     useContext(WorkOverlayContext)
-  const { toggleIsActive } = useContext(CursorContext)
+  const { toggleCursorActive } = useContext(CursorContext)
 
   const title = data.prismicWorkOverlay.data.title
   const content = data.prismicWorkOverlay.data.content
@@ -105,8 +105,8 @@ const WorkOverlay = () => {
               <div className="work-overlay__content-column">
                 <button
                   onClick={handleClick}
-                  onMouseEnter={toggleIsActive}
-                  onMouseLeave={toggleIsActive}
+                  onMouseEnter={toggleCursorActive}
+                  onMouseLeave={toggleCursorActive}
                   className="work-overlay__overlay-trigger overlay-trigger"
                 >
                   <div className="work-overlay__content-column-inner">
@@ -159,6 +159,8 @@ const WorkOverlay = () => {
                 href={linkUrl.url}
                 target={linkUrl.target}
                 className="work-overlay__footer-link"
+                onMouseEnter={toggleCursorActive}
+                onMouseLeave={toggleCursorActive}
               >
                 {linkLabel}
               </a>

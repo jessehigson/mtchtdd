@@ -1,19 +1,19 @@
 import React, { createContext, useCallback, useState } from 'react'
 
 export const CursorContext = createContext({
-  isActive: false,
-  toggleIsActive: () => {},
+  cursorActive: false,
+  toggleCursorActive: () => {},
 })
 
 export const CursorContextProvider = ({ children }) => {
-  const [isActive, setIsActive] = useState(false)
+  const [cursorActive, setCursorActive] = useState(false)
 
-  const toggleIsActive = useCallback(() => {
-    setIsActive(isActive => !isActive)
-  }, [setIsActive])
+  const toggleCursorActive = useCallback(() => {
+    setCursorActive(cursorActive => !cursorActive)
+  }, [setCursorActive])
 
   return (
-    <CursorContext.Provider value={{ isActive, toggleIsActive }}>
+    <CursorContext.Provider value={{ cursorActive, toggleCursorActive }}>
       {children}
     </CursorContext.Provider>
   )

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { CursorContext } from '../context/cursor-context-provider'
 
 export const NowPlaying = ({ userName, apiKey }) => {
   const [lfmData, updateLfmData] = useState({})
@@ -20,6 +21,8 @@ export const NowPlaying = ({ userName, apiKey }) => {
   }, [])
 
   const buildLastFmData = () => {
+    const { toggleCursorActive } = useContext(CursorContext)
+
     const { error } = lfmData
     const track = lfmData?.recenttracks?.track
 
@@ -47,6 +50,8 @@ export const NowPlaying = ({ userName, apiKey }) => {
           href={url}
           rel="nofollow noopener"
           target="_blank"
+          onMouseEnter={toggleCursorActive}
+          onMouseLeave={toggleCursorActive}
           className="now-playing__link"
         >
           <img
