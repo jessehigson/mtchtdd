@@ -1,10 +1,11 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import React, { useContext } from 'react'
 import { WorkOverlayContext } from '../context/work-overlay-context-provider'
 import { CursorContext } from '../context/cursor-context-provider'
 import useLockBodyScroll from '../hooks/use-lock-body-scroll'
 import Image from './image'
+import ThursdayLogo from './icons/thursday-logo'
 
 const WorkOverlay = () => {
   const data = useStaticQuery(graphql`
@@ -155,15 +156,16 @@ const WorkOverlay = () => {
         {linkUrl && (
           <div className="work-overlay__footer">
             <div className="work-overlay__footer-container container">
-              <a
-                href={linkUrl.url}
+              <Link
+                to={linkUrl.url}
                 target={linkUrl.target}
                 className="work-overlay__footer-link"
                 onMouseEnter={toggleCursorActive}
                 onMouseLeave={toggleCursorActive}
               >
-                {linkLabel}
-              </a>
+                <ThursdayLogo />
+                <span className="screenreader-text">{linkLabel}</span>
+              </Link>
             </div>
           </div>
         )}
