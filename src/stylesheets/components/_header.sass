@@ -3,10 +3,9 @@
   pointer-events: none
   top: 0
   width: 100%
-  z-index: 999
 
   @media (min-width: $smallDesktop)
-    position: fixed
+    position: absolute
 
   &--modifier-white
     color: $white
@@ -34,4 +33,4 @@
 
   &__video-toggle
     .header--modifier-white &
-      display: none
+      display: none !important

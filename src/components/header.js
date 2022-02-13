@@ -5,7 +5,7 @@ import { CursorContext } from '../context/cursor-context-provider'
 import Logo from './icons/logo'
 import VideoToggle from './video-toggle'
 
-const Header = () => {
+const Header = ({ ariaHidden }) => {
   const { workOverlayOpen } = useContext(WorkOverlayContext)
   const { toggleCursorActive } = useContext(CursorContext)
 
@@ -13,6 +13,7 @@ const Header = () => {
     <>
       <header
         className={`header${workOverlayOpen ? ' header--modifier-white' : ''}`}
+        aria-hidden={ariaHidden}
       >
         <div className="header__container container">
           <div className="header__container-inner">

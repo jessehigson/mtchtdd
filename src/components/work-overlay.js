@@ -6,6 +6,7 @@ import { CursorContext } from '../context/cursor-context-provider'
 import useLockBodyScroll from '../hooks/use-lock-body-scroll'
 import Image from './image'
 import ThursdayLogo from './icons/thursday-logo'
+import Header from './header'
 
 const WorkOverlay = () => {
   const data = useStaticQuery(graphql`
@@ -88,6 +89,7 @@ const WorkOverlay = () => {
   return (
     <>
       <section className="work-overlay" aria-hidden={!workOverlayOpen}>
+        <Header ariaHidden="true" />
         <div className="work-overlay__container container container--flex">
           <div className="work-overlay__column work-overlay__column--left">
             <div className="work-overlay__content">
