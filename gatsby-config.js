@@ -53,7 +53,7 @@ module.exports = {
         background_color: '#FFFFFF',
         theme_color: '#FFFFFF',
         display: 'minimal-ui',
-        icon: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
+        icon: path.resolve(__dirname, 'src', 'images', 'favicon.jpg'),
       },
     },
     {
