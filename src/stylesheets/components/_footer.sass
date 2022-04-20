@@ -18,11 +18,22 @@
         width: 50%
 
   &__column
-    flex: 0 0 50%
+    flex: 0 0 auto
     pointer-events: all
-    width: 50%
 
-    @media (min-width: $tablet)
+    &:first-of-type
+      padding-right: 1em
+
+      @media (max-width: $maxLargeMobile)
+        flex-basis: 45%
+        width: 45%
+
+    &:last-of-type
+      @media (max-width: $maxLargeMobile)
+        flex-basis: 55%
+        width: 55%
+
+    @media (min-width: $largeMobile)
       flex-basis: auto
       width: auto
 
