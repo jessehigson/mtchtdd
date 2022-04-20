@@ -18,7 +18,13 @@
         width: 50%
 
   &__column
+    flex: 0 0 50%
     pointer-events: all
+    width: 50%
+
+    @media (min-width: $tablet)
+      flex-basis: auto
+      width: auto
 
   &__links
     &-list
