@@ -22,7 +22,7 @@ export const NowPlaying = ({ userName, apiKey }) => {
   }, [])
 
   const buildLastFmData = () => {
-    const { toggleCursorActive } = useContext(CursorContext)
+    const { activateCursor, deactivateCursor } = useContext(CursorContext)
 
     const { error } = lfmData
     const track = lfmData?.recenttracks?.track
@@ -51,8 +51,6 @@ export const NowPlaying = ({ userName, apiKey }) => {
           to={url}
           rel="nofollow noopener"
           target="_blank"
-          onMouseEnter={toggleCursorActive}
-          onMouseLeave={toggleCursorActive}
           className="now-playing__link"
         >
           <img
@@ -60,7 +58,11 @@ export const NowPlaying = ({ userName, apiKey }) => {
             alt={`The artwork for the song ${name} by the artist ${artist}`}
             className="now-playing__art"
           />
-          <div className="now-playing__content">
+          <div
+            className="now-playing__content"
+            onMouseEnter={activateCursor}
+            onMouseLeave={deactivateCursor}
+          >
             <span>
               {artist}&nbsp;-&nbsp;{name}
             </span>

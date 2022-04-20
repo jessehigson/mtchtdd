@@ -7,7 +7,7 @@ import VideoToggle from './video-toggle'
 
 const Header = ({ ariaHidden }) => {
   const { workOverlayOpen } = useContext(WorkOverlayContext)
-  const { toggleCursorActive } = useContext(CursorContext)
+  const { activateCursor, deactivateCursor } = useContext(CursorContext)
 
   return (
     <>
@@ -20,8 +20,8 @@ const Header = ({ ariaHidden }) => {
             <Link
               to="/#"
               className="header__logo"
-              onMouseEnter={toggleCursorActive}
-              onMouseLeave={toggleCursorActive}
+              onMouseEnter={activateCursor}
+              onMouseLeave={deactivateCursor}
             >
               <Logo />
               <span className="screenreader-text">Mitchell Todd</span>

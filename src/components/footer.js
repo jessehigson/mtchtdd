@@ -27,7 +27,7 @@ const Footer = () => {
     }
   `)
 
-  const { toggleCursorActive } = useContext(CursorContext)
+  const { activateCursor, deactivateCursor } = useContext(CursorContext)
 
   const email = data.prismicFooter.data.email
   const headshot = data.prismicFooter.data.headshot
@@ -51,8 +51,8 @@ const Footer = () => {
                       className="footer__link"
                       title={`Contact ${email}`}
                       href={`mailto:${email}`}
-                      onMouseEnter={toggleCursorActive}
-                      onMouseLeave={toggleCursorActive}
+                      onMouseEnter={activateCursor}
+                      onMouseLeave={deactivateCursor}
                     >
                       {headshot && (
                         <Image
@@ -74,11 +74,13 @@ const Footer = () => {
                     target="_blank"
                     title="Built by Jesse Higson"
                     className="footer__link site-credit"
-                    onMouseEnter={toggleCursorActive}
-                    onMouseLeave={toggleCursorActive}
                   >
                     <span className="site-credit__title">Site credit</span>
-                    <span className="site-credit__content">
+                    <span
+                      className="site-credit__content"
+                      onMouseEnter={activateCursor}
+                      onMouseLeave={deactivateCursor}
+                    >
                       Built by Jesse Higson
                     </span>
                   </Link>

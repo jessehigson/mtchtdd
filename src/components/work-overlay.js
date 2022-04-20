@@ -67,7 +67,7 @@ const WorkOverlay = () => {
 
   const { workOverlayOpen, closeWorkOverlay, imagesCounter, setImagesCounter } =
     useContext(WorkOverlayContext)
-  const { toggleCursorActive } = useContext(CursorContext)
+  const { activateCursor, deactivateCursor } = useContext(CursorContext)
 
   const title = data.prismicWorkOverlay.data.title
   const content = data.prismicWorkOverlay.data.content
@@ -108,8 +108,8 @@ const WorkOverlay = () => {
               <div className="work-overlay__content-column">
                 <button
                   onClick={handleClick}
-                  onMouseEnter={toggleCursorActive}
-                  onMouseLeave={toggleCursorActive}
+                  onMouseEnter={activateCursor}
+                  onMouseLeave={deactivateCursor}
                   className="work-overlay__overlay-trigger overlay-trigger"
                 >
                   <div className="work-overlay__content-column-inner">
@@ -162,11 +162,14 @@ const WorkOverlay = () => {
                 to={linkUrl.url}
                 target={linkUrl.target}
                 className="work-overlay__footer-link"
-                onMouseEnter={toggleCursorActive}
-                onMouseLeave={toggleCursorActive}
               >
-                <ThursdayLogo />
-                <span className="screenreader-text">{linkLabel}</span>
+                <span
+                  onMouseEnter={activateCursor}
+                  onMouseLeave={deactivateCursor}
+                >
+                  <ThursdayLogo />
+                  <span className="screenreader-text">{linkLabel}</span>
+                </span>
               </Link>
             </div>
           </div>

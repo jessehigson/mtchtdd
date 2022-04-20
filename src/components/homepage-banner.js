@@ -10,7 +10,7 @@ export const HomepageBanner = ({
   workContent,
 }) => {
   const { toggleWorkOverlay } = useContext(WorkOverlayContext)
-  const { toggleCursorActive } = useContext(CursorContext)
+  const { activateCursor, deactivateCursor } = useContext(CursorContext)
 
   return (
     <>
@@ -33,8 +33,8 @@ export const HomepageBanner = ({
               <div className="homepage-banner__work">
                 <button
                   onClick={toggleWorkOverlay}
-                  onMouseEnter={toggleCursorActive}
-                  onMouseLeave={toggleCursorActive}
+                  onMouseEnter={activateCursor}
+                  onMouseLeave={deactivateCursor}
                   className="homepage-banner__overlay-trigger overlay-trigger"
                 >
                   <div className="homepage-banner__work-inner">

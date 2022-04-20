@@ -4,14 +4,14 @@ import { CursorContext } from '../context/cursor-context-provider'
 
 const VideoToggle = () => {
   const { isPlaying, toggleIsPlaying } = useContext(VideoContext)
-  const { toggleCursorActive } = useContext(CursorContext)
+  const { activateCursor, deactivateCursor } = useContext(CursorContext)
 
   return (
     <button
       className="header__video-toggle video-toggle"
       onClick={toggleIsPlaying}
-      onMouseEnter={toggleCursorActive}
-      onMouseLeave={toggleCursorActive}
+      onMouseEnter={activateCursor}
+      onMouseLeave={deactivateCursor}
       aria-checked={isPlaying}
     >
       <span aria-hidden={!isPlaying}>Play</span>
