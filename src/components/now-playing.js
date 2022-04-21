@@ -1,8 +1,10 @@
 import { Link } from 'gatsby'
 import React, { useState, useEffect, useContext } from 'react'
 import { CursorContext } from '../context/cursor-context-provider'
+import useIsMobile from '../hooks/use-is-mobile'
 
 export const NowPlaying = ({ userName, apiKey }) => {
+  const isMobile = useIsMobile()
   const [lfmData, updateLfmData] = useState({})
 
   useEffect(() => {
@@ -53,11 +55,13 @@ export const NowPlaying = ({ userName, apiKey }) => {
           target="_blank"
           className="now-playing__link"
         >
-          <img
-            src={art}
-            alt={`The artwork for the song ${name} by the artist ${artist}`}
-            className="now-playing__art"
-          />
+          {!isMobile && (
+            <img
+              src={art}
+              alt={`The artwork for the song ${name} by the artist ${artist}`}
+              className="now-playing__art"
+            />
+          )}
           <div
             className="now-playing__content"
             onMouseEnter={activateCursor}

@@ -3,8 +3,11 @@ import React, { useContext } from 'react'
 import { NowPlaying } from './now-playing'
 import Image from './image'
 import { CursorContext } from '../context/cursor-context-provider'
+import useIsMobile from '../hooks/use-is-mobile'
 
 const Footer = () => {
+  const isMobile = useIsMobile()
+
   const data = useStaticQuery(graphql`
     query FooterQuery {
       prismicFooter {
@@ -54,7 +57,7 @@ const Footer = () => {
                       onMouseEnter={activateCursor}
                       onMouseLeave={deactivateCursor}
                     >
-                      {headshot && (
+                      {!isMobile && headshot && (
                         <Image
                           image={headshot}
                           alt={headshot.alt ? headshot.alt : ''}
