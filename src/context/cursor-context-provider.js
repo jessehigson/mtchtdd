@@ -11,12 +11,10 @@ export const CursorContextProvider = ({ children }) => {
 
   const activateCursor = useCallback(() => {
     setCursorActive(true)
-    console.log('testing 1')
   }, [setCursorActive])
 
   const deactivateCursor = useCallback(() => {
     setCursorActive(false)
-    console.log('testing 2')
   }, [setCursorActive])
 
   return (
