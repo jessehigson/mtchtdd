@@ -1,11 +1,15 @@
-const path = require('path')
-const dotenv = require('dotenv')
+const path = require("path");
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = "https://mtchtdd.com",
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === "production";
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
-const prismicConfig = require('./prismic-configuration')
+const prismicConfig = require("./prismic-configuration");
 
 module.exports = {
   siteMetadata: {
@@ -16,16 +20,16 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: "gatsby-source-prismic",
       options: {
         repositoryName: prismicConfig.prismicRepo,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
-        linkResolver: require('./src/utils/link-resolver').linkResolver,
+        linkResolver: require("./src/utils/link-resolver").linkResolver,
       },
     },
     {
-      resolve: 'gatsby-plugin-prismic-previews',
+      resolve: "gatsby-plugin-prismic-previews",
       options: {
         repositoryName: prismicConfig.prismicRepo,
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
@@ -41,46 +45,51 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: 'mtchtdd-com',
-        short_name: 'mtchtdd',
-        start_url: '/',
-        background_color: '#FFFFFF',
-        theme_color: '#FFFFFF',
-        display: 'minimal-ui',
-        icon: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
+        name: "mtchtdd-com",
+        short_name: "mtchtdd",
+        start_url: "/",
+        background_color: "#FFFFFF",
+        theme_color: "#FFFFFF",
+        display: "minimal-ui",
+        icon: path.resolve(__dirname, "src", "images", "favicon.png"),
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: 'images',
-        path: path.resolve(__dirname, 'src', 'images'),
+        name: "images",
+        path: path.resolve(__dirname, "src", "images"),
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sitemap`,
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://www.mtchtdd.com',
-        sitemap: 'https://www.mtchtdd.com/sitemap/sitemap-index.xml',
-        resolveEnv: () => process.env.GATSBY_ENV,
+        resolveEnv: () => NETLIFY_ENV,
         env: {
-          development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-          },
           production: {
-            policy: [{ userAgent: '*', allow: '/' }],
+            policy: [{ userAgent: "*" }],
+          },
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
           },
         },
       },
     },
-    'gatsby-plugin-netlify',
+    "gatsby-plugin-netlify",
   ],
-}
+};
