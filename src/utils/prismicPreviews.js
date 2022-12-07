@@ -10,7 +10,6 @@ import { componentResolverFromMap } from 'gatsby-plugin-prismic-previews'
 import { prismicRepo } from '../../prismic-configuration'
 import { linkResolver } from './link-resolver'
 
-import About from '../pages/about'
 import Index from '../pages/index'
 
 /**
@@ -27,7 +26,6 @@ export const repositoryConfigs = [
     repositoryName: prismicRepo,
     linkResolver,
     componentResolver: componentResolverFromMap({
-      about: About,
       index: Index,
     }),
   },

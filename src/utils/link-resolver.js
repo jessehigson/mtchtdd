@@ -12,9 +12,6 @@
 exports.linkResolver = doc => {
   switch (doc.type) {
     // static pages
-    case 'about': {
-      return `/about`
-    }
     case 'homepage': {
       return `/`
     }
